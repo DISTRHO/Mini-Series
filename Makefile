@@ -13,8 +13,8 @@ libs:
 
 plugins: libs
 	$(MAKE) -C plugins/3BandEQ
-# 	$(MAKE) -C plugins/3BandSplitter
-# 	$(MAKE) -C plugins/PingPongPan
+	$(MAKE) -C plugins/3BandSplitter
+	$(MAKE) -C plugins/PingPongPan
 
 gen: plugins dpf/utils/lv2_ttl_generator
 	@$(CURDIR)/dpf/utils/generate-ttl.sh
@@ -28,8 +28,8 @@ clean:
 	$(MAKE) clean -C dpf/dgl
 	$(MAKE) clean -C dpf/utils/lv2-ttl-generator
 	$(MAKE) clean -C plugins/3BandEQ
-# 	$(MAKE) clean -C plugins/3BandSplitter
-# 	$(MAKE) clean -C plugins/PingPongPan
+	$(MAKE) clean -C plugins/3BandSplitter
+	$(MAKE) clean -C plugins/PingPongPan
 
 # --------------------------------------------------------------
 
