@@ -1,0 +1,9 @@
+[Project]
+Manager=KDevGenericManager
+Name=DISTRHO Mini-Series
+
+[Filters]
+Excludes=*/.*,*/*~,*/*.a
+
+[Project]
+VersionControlSupport=kdevgit
