@@ -9,27 +9,27 @@ all: libs plugins gen
 # --------------------------------------------------------------
 
 libs:
-	$(MAKE) -C libs/dgl
+	$(MAKE) -C dpf/dgl
 
 plugins: libs
 	$(MAKE) -C plugins/3BandEQ
-	$(MAKE) -C plugins/3BandSplitter
-	$(MAKE) -C plugins/PingPongPan
+# 	$(MAKE) -C plugins/3BandSplitter
+# 	$(MAKE) -C plugins/PingPongPan
 
-gen: plugins libs/lv2_ttl_generator
-	@./libs/generate-ttl.sh
+gen: plugins dpf/utils/lv2_ttl_generator
+	@$(CURDIR)/dpf/utils/generate-ttl.sh
 
-libs/lv2_ttl_generator:
-	$(MAKE) -C libs/lv2-ttl-generator
+dpf/utils/lv2_ttl_generator:
+	$(MAKE) -C dpf/utils/lv2-ttl-generator
 
 # --------------------------------------------------------------
 
 clean:
-	$(MAKE) clean -C libs/dgl
-	$(MAKE) clean -C libs/lv2-ttl-generator
+	$(MAKE) clean -C dpf/dgl
+	$(MAKE) clean -C dpf/utils/lv2-ttl-generator
 	$(MAKE) clean -C plugins/3BandEQ
-	$(MAKE) clean -C plugins/3BandSplitter
-	$(MAKE) clean -C plugins/PingPongPan
+# 	$(MAKE) clean -C plugins/3BandSplitter
+# 	$(MAKE) clean -C plugins/PingPongPan
 
 # --------------------------------------------------------------
 

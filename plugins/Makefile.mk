@@ -14,7 +14,7 @@ include ../../Makefile.mk
 TARGET_DIR = ../../bin
 
 BUILD_C_FLAGS   += -I.
-BUILD_CXX_FLAGS += -I. -I../../libs/distrho -I../../libs/dgl
+BUILD_CXX_FLAGS += -I. -I../../dpf/distrho -I../../dpf/dgl
 
 # --------------------------------------------------------------
 # Enable all possible plugin types
@@ -40,8 +40,8 @@ endif
 # --------------------------------------------------------------
 # Set distrho code files
 
-DISTRHO_PLUGIN_FILES = ../../libs/distrho/DistrhoPluginMain.cpp
-DISTRHO_UI_FILES     = ../../libs/distrho/DistrhoUIMain.cpp ../../libs/libdgl.a
+DISTRHO_PLUGIN_FILES = ../../dpf/distrho/DistrhoPluginMain.cpp
+DISTRHO_UI_FILES     = ../../dpf/distrho/DistrhoUIMain.cpp ../../dpf/libdgl.a
 
 # --------------------------------------------------------------
 # Handle plugins without UI
