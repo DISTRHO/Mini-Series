@@ -17,8 +17,6 @@
 #include "DistrhoPluginPingPongPan.hpp"
 #include "DistrhoUIPingPongPan.hpp"
 
-using DGL::Point;
-
 START_NAMESPACE_DISTRHO
 
 // -----------------------------------------------------------------------
@@ -37,14 +35,14 @@ DistrhoUIPingPongPan::DistrhoUIPingPongPan()
     Image knobImage(DistrhoArtworkPingPongPan::knobData, DistrhoArtworkPingPongPan::knobWidth, DistrhoArtworkPingPongPan::knobHeight);
 
     // knob Low-Mid
-    fKnobFreq = new ImageKnob(this, knobImage);
+    fKnobFreq = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPluginPingPongPan::paramFreq);
     fKnobFreq->setPos(60, 58);
     fKnobFreq->setRange(0.0f, 100.0f);
     fKnobFreq->setRotationAngle(270);
     fKnobFreq->setCallback(this);
 
     // knob Mid-High
-    fKnobWidth = new ImageKnob(this, knobImage);
+    fKnobWidth = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPluginPingPongPan::paramWidth);
     fKnobWidth->setPos(182, 58);
     fKnobWidth->setRange(0.0f, 100.0f);
     fKnobWidth->setRotationAngle(270);
@@ -100,27 +98,17 @@ void DistrhoUIPingPongPan::imageButtonClicked(ImageButton* button, int)
 
 void DistrhoUIPingPongPan::imageKnobDragStarted(ImageKnob* knob)
 {
-    if (knob == fKnobFreq)
-        d_editParameter(DistrhoPluginPingPongPan::paramFreq, true);
-    else if (knob == fKnobWidth)
-        d_editParameter(DistrhoPluginPingPongPan::paramWidth, true);
+    d_editParameter(knob->getId(), true);
 }
 
 void DistrhoUIPingPongPan::imageKnobDragFinished(ImageKnob* knob)
 {
-    if (knob == fKnobFreq)
-        d_editParameter(DistrhoPluginPingPongPan::paramFreq, false);
-    else if (knob == fKnobWidth)
-        d_editParameter(DistrhoPluginPingPongPan::paramWidth, false);
+    d_editParameter(knob->getId(), false);
 }
-
 
 void DistrhoUIPingPongPan::imageKnobValueChanged(ImageKnob* knob, float value)
 {
-    if (knob == fKnobFreq)
-        d_setParameterValue(DistrhoPluginPingPongPan::paramFreq, value);
-    else if (knob == fKnobWidth)
-        d_setParameterValue(DistrhoPluginPingPongPan::paramWidth, value);
+    d_setParameterValue(knob->getId(), value);
 }
 
 void DistrhoUIPingPongPan::onDisplay()

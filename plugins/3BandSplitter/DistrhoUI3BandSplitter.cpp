@@ -41,6 +41,7 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
 
     // slider Low
     fSliderLow = new ImageSlider(this, sliderImage);
+    fSliderLow->setId(DistrhoPlugin3BandSplitter::paramLow);
     fSliderLow->setStartPos(sliderPosStart);
     fSliderLow->setEndPos(sliderPosEnd);
     fSliderLow->setRange(-24.0f, 24.0f);
@@ -50,6 +51,7 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     sliderPosStart.setX(120);
     sliderPosEnd.setX(120);
     fSliderMid = new ImageSlider(*fSliderLow);
+    fSliderMid->setId(DistrhoPlugin3BandSplitter::paramMid);
     fSliderMid->setStartPos(sliderPosStart);
     fSliderMid->setEndPos(sliderPosEnd);
 
@@ -57,6 +59,7 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     sliderPosStart.setX(183);
     sliderPosEnd.setX(183);
     fSliderHigh = new ImageSlider(*fSliderLow);
+    fSliderHigh->setId(DistrhoPlugin3BandSplitter::paramHigh);
     fSliderHigh->setStartPos(sliderPosStart);
     fSliderHigh->setEndPos(sliderPosEnd);
 
@@ -64,6 +67,7 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     sliderPosStart.setX(287);
     sliderPosEnd.setX(287);
     fSliderMaster = new ImageSlider(*fSliderLow);
+    fSliderMaster->setId(DistrhoPlugin3BandSplitter::paramMaster);
     fSliderMaster->setStartPos(sliderPosStart);
     fSliderMaster->setEndPos(sliderPosEnd);
 
@@ -71,14 +75,14 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     Image knobImage(DistrhoArtwork3BandSplitter::knobData, DistrhoArtwork3BandSplitter::knobWidth, DistrhoArtwork3BandSplitter::knobHeight);
 
     // knob Low-Mid
-    fKnobLowMid = new ImageKnob(this, knobImage);
+    fKnobLowMid = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPlugin3BandSplitter::paramLowMidFreq);
     fKnobLowMid->setPos(65, 269);
     fKnobLowMid->setRange(0.0f, 1000.0f);
     fKnobLowMid->setRotationAngle(270);
     fKnobLowMid->setCallback(this);
 
     // knob Mid-High
-    fKnobMidHigh = new ImageKnob(this, knobImage);
+    fKnobMidHigh = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPlugin3BandSplitter::paramMidHighFreq);
     fKnobMidHigh->setPos(159, 269);
     fKnobMidHigh->setRange(1000.0f, 20000.0f);
     fKnobMidHigh->setRotationAngle(270);
@@ -150,62 +154,32 @@ void DistrhoUI3BandSplitter::imageButtonClicked(ImageButton* button, int)
 
 void DistrhoUI3BandSplitter::imageKnobDragStarted(ImageKnob* knob)
 {
-    if (knob == fKnobLowMid)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramLowMidFreq, true);
-    else if (knob == fKnobMidHigh)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramMidHighFreq, true);
+    d_editParameter(knob->getId(), true);
 }
 
 void DistrhoUI3BandSplitter::imageKnobDragFinished(ImageKnob* knob)
 {
-    if (knob == fKnobLowMid)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramLowMidFreq, false);
-    else if (knob == fKnobMidHigh)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramMidHighFreq, false);
+    d_editParameter(knob->getId(), false);
 }
 
 void DistrhoUI3BandSplitter::imageKnobValueChanged(ImageKnob* knob, float value)
 {
-    if (knob == fKnobLowMid)
-        d_setParameterValue(DistrhoPlugin3BandSplitter::paramLowMidFreq, value);
-    else if (knob == fKnobMidHigh)
-        d_setParameterValue(DistrhoPlugin3BandSplitter::paramMidHighFreq, value);
+    d_setParameterValue(knob->getId(), value);
 }
 
 void DistrhoUI3BandSplitter::imageSliderDragStarted(ImageSlider* slider)
 {
-    if (slider == fSliderLow)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramLow, true);
-    else if (slider == fSliderMid)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramMid, true);
-    else if (slider == fSliderHigh)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramHigh, true);
-    else if (slider == fSliderMaster)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramMaster, true);
+    d_editParameter(slider->getId(), true);
 }
 
 void DistrhoUI3BandSplitter::imageSliderDragFinished(ImageSlider* slider)
 {
-    if (slider == fSliderLow)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramLow, false);
-    else if (slider == fSliderMid)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramMid, false);
-    else if (slider == fSliderHigh)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramHigh, false);
-    else if (slider == fSliderMaster)
-        d_editParameter(DistrhoPlugin3BandSplitter::paramMaster, false);
+    d_editParameter(slider->getId(), false);
 }
 
 void DistrhoUI3BandSplitter::imageSliderValueChanged(ImageSlider* slider, float value)
 {
-    if (slider == fSliderLow)
-        d_setParameterValue(DistrhoPlugin3BandSplitter::paramLow, value);
-    else if (slider == fSliderMid)
-        d_setParameterValue(DistrhoPlugin3BandSplitter::paramMid, value);
-    else if (slider == fSliderHigh)
-        d_setParameterValue(DistrhoPlugin3BandSplitter::paramHigh, value);
-    else if (slider == fSliderMaster)
-        d_setParameterValue(DistrhoPlugin3BandSplitter::paramMaster, value);
+    d_setParameterValue(slider->getId(), value);
 }
 
 void DistrhoUI3BandSplitter::onDisplay()
