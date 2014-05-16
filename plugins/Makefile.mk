@@ -19,11 +19,16 @@ BUILD_CXX_FLAGS += -I. -I../../dpf/distrho -I../../dpf/dgl
 # --------------------------------------------------------------
 # Enable all possible plugin types
 
+ifeq ($(LINUX),true)
+all: jack ladspa dssi lv2 vst
+else
 all: ladspa dssi lv2 vst
+endif
 
 # --------------------------------------------------------------
 # Set plugin binary file targets
 
+jack       = $(TARGET_DIR)/$(NAME)
 ladspa_dsp = $(TARGET_DIR)/$(NAME)-ladspa.$(EXT)
 dssi_dsp   = $(TARGET_DIR)/$(NAME)-dssi.$(EXT)
 dssi_ui    = $(TARGET_DIR)/$(NAME)-dssi/$(NAME)_ui
@@ -66,6 +71,15 @@ endif
 clean:
 	rm -f *.o
 	rm -rf $(TARGET_DIR)/$(NAME)-* $(TARGET_DIR)/$(NAME).lv2/
+
+# --------------------------------------------------------------
+# JACK
+
+jack: $(jack)
+
+$(jack): $(OBJS_DSP) $(OBJS_UI) $(DISTRHO_PLUGIN_FILES) $(DISTRHO_UI_FILES)
+	mkdir -p $(shell dirname $@)
+	$(CXX) $^ $(BUILD_CXX_FLAGS) $(LINK_FLAGS) $(DGL_LIBS) $(shell pkg-config --libs jack) -lpthread -DDISTRHO_PLUGIN_TARGET_JACK -o $@
 
 # --------------------------------------------------------------
 # LADSPA
