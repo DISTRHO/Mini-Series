@@ -11,3 +11,6 @@
 
 bin/*-dssi/
 bin/*.lv2/
+bin/3BandEQ
+bin/3BandSplitter
+bin/PingPongPan
