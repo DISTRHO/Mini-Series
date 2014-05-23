@@ -25,3 +25,12 @@ OBJS_UI  = \
 include ../Makefile.mk
 
 # --------------------------------------------------------------
+# Enable all possible plugin types
+
+ifeq ($(LINUX),true)
+all: jack ladspa dssi lv2_sep vst
+else
+all: ladspa dssi lv2_sep vst
+endif
+
+# --------------------------------------------------------------

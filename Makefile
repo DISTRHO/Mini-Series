@@ -12,9 +12,9 @@ libs:
 	$(MAKE) -C dpf/dgl
 
 plugins: libs
-	$(MAKE) -C plugins/3BandEQ
-	$(MAKE) -C plugins/3BandSplitter
-	$(MAKE) -C plugins/PingPongPan
+	$(MAKE) all -C plugins/3BandEQ
+	$(MAKE) all -C plugins/3BandSplitter
+	$(MAKE) all -C plugins/PingPongPan
 
 gen: plugins dpf/utils/lv2_ttl_generator
 	@$(CURDIR)/dpf/utils/generate-ttl.sh
@@ -33,4 +33,4 @@ clean:
 
 # --------------------------------------------------------------
 
-.PHONY: libs plugins
+.PHONY: plugins
