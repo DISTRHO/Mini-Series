@@ -76,15 +76,17 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
 
     // knob Low-Mid
     fKnobLowMid = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPlugin3BandSplitter::paramLowMidFreq);
-    fKnobLowMid->setPos(65, 269);
+    fKnobLowMid->setAbsolutePos(65, 269);
     fKnobLowMid->setRange(0.0f, 1000.0f);
+    fKnobLowMid->setDefault(440.0f);
     fKnobLowMid->setRotationAngle(270);
     fKnobLowMid->setCallback(this);
 
     // knob Mid-High
     fKnobMidHigh = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPlugin3BandSplitter::paramMidHighFreq);
-    fKnobMidHigh->setPos(159, 269);
+    fKnobMidHigh->setAbsolutePos(159, 269);
     fKnobMidHigh->setRange(1000.0f, 20000.0f);
+    fKnobMidHigh->setDefault(1000.0f);
     fKnobMidHigh->setRotationAngle(270);
     fKnobMidHigh->setCallback(this);
 
@@ -92,7 +94,7 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     Image aboutImageNormal(DistrhoArtwork3BandSplitter::aboutButtonNormalData, DistrhoArtwork3BandSplitter::aboutButtonNormalWidth, DistrhoArtwork3BandSplitter::aboutButtonNormalHeight);
     Image aboutImageHover(DistrhoArtwork3BandSplitter::aboutButtonHoverData, DistrhoArtwork3BandSplitter::aboutButtonHoverWidth, DistrhoArtwork3BandSplitter::aboutButtonHoverHeight);
     fButtonAbout = new ImageButton(this, aboutImageNormal, aboutImageHover, aboutImageHover);
-    fButtonAbout->setPos(264, 300);
+    fButtonAbout->setAbsolutePos(264, 300);
     fButtonAbout->setCallback(this);
 
     // set default values

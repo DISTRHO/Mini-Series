@@ -76,15 +76,17 @@ DistrhoUI3BandEQ::DistrhoUI3BandEQ()
 
     // knob Low-Mid
     fKnobLowMid = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPlugin3BandEQ::paramLowMidFreq);
-    fKnobLowMid->setPos(65, 269);
+    fKnobLowMid->setAbsolutePos(65, 269);
     fKnobLowMid->setRange(0.0f, 1000.0f);
+    fKnobLowMid->setDefault(440.0f);
     fKnobLowMid->setRotationAngle(270);
     fKnobLowMid->setCallback(this);
 
     // knob Mid-High
     fKnobMidHigh = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPlugin3BandEQ::paramMidHighFreq);
-    fKnobMidHigh->setPos(159, 269);
+    fKnobMidHigh->setAbsolutePos(159, 269);
     fKnobMidHigh->setRange(1000.0f, 20000.0f);
+    fKnobMidHigh->setDefault(1000.0f);
     fKnobMidHigh->setRotationAngle(270);
     fKnobMidHigh->setCallback(this);
 
@@ -92,7 +94,7 @@ DistrhoUI3BandEQ::DistrhoUI3BandEQ()
     Image aboutImageNormal(DistrhoArtwork3BandEQ::aboutButtonNormalData, DistrhoArtwork3BandEQ::aboutButtonNormalWidth, DistrhoArtwork3BandEQ::aboutButtonNormalHeight);
     Image aboutImageHover(DistrhoArtwork3BandEQ::aboutButtonHoverData, DistrhoArtwork3BandEQ::aboutButtonHoverWidth, DistrhoArtwork3BandEQ::aboutButtonHoverHeight);
     fButtonAbout = new ImageButton(this, aboutImageNormal, aboutImageHover, aboutImageHover);
-    fButtonAbout->setPos(264, 300);
+    fButtonAbout->setAbsolutePos(264, 300);
     fButtonAbout->setCallback(this);
 
     // set default values

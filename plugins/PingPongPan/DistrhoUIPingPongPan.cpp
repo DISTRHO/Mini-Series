@@ -36,15 +36,17 @@ DistrhoUIPingPongPan::DistrhoUIPingPongPan()
 
     // knob Low-Mid
     fKnobFreq = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPluginPingPongPan::paramFreq);
-    fKnobFreq->setPos(60, 58);
+    fKnobFreq->setAbsolutePos(60, 58);
     fKnobFreq->setRange(0.0f, 100.0f);
+    fKnobFreq->setDefault(50.0f);
     fKnobFreq->setRotationAngle(270);
     fKnobFreq->setCallback(this);
 
     // knob Mid-High
     fKnobWidth = new ImageKnob(this, knobImage, ImageKnob::Vertical, DistrhoPluginPingPongPan::paramWidth);
-    fKnobWidth->setPos(182, 58);
+    fKnobWidth->setAbsolutePos(182, 58);
     fKnobWidth->setRange(0.0f, 100.0f);
+    fKnobWidth->setDefault(75.0f);
     fKnobWidth->setRotationAngle(270);
     fKnobWidth->setCallback(this);
 
@@ -52,7 +54,7 @@ DistrhoUIPingPongPan::DistrhoUIPingPongPan()
     Image aboutImageNormal(DistrhoArtworkPingPongPan::aboutButtonNormalData, DistrhoArtworkPingPongPan::aboutButtonNormalWidth, DistrhoArtworkPingPongPan::aboutButtonNormalHeight);
     Image aboutImageHover(DistrhoArtworkPingPongPan::aboutButtonHoverData, DistrhoArtworkPingPongPan::aboutButtonHoverWidth, DistrhoArtworkPingPongPan::aboutButtonHoverHeight);
     fButtonAbout = new ImageButton(this, aboutImageNormal, aboutImageHover, aboutImageHover);
-    fButtonAbout->setPos(183, 8);
+    fButtonAbout->setAbsolutePos(183, 8);
     fButtonAbout->setCallback(this);
 
     // set default values
