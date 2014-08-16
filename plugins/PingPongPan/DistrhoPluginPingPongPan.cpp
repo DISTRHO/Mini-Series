@@ -43,7 +43,7 @@ void DistrhoPluginPingPongPan::d_initParameter(uint32_t index, Parameter& parame
     switch (index)
     {
     case paramFreq:
-        parameter.hints      = PARAMETER_IS_AUTOMABLE;
+        parameter.hints      = kParameterIsAutomable;
         parameter.name       = "Frequency";
         parameter.symbol     = "freq";
         parameter.ranges.def = 50.0f;
@@ -52,7 +52,7 @@ void DistrhoPluginPingPongPan::d_initParameter(uint32_t index, Parameter& parame
         break;
 
     case paramWidth:
-        parameter.hints      = PARAMETER_IS_AUTOMABLE;
+        parameter.hints      = kParameterIsAutomable;
         parameter.name       = "Width";
         parameter.symbol     = "with";
         parameter.unit       = "%";

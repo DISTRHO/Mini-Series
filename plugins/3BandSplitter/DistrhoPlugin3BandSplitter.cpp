@@ -45,7 +45,7 @@ void DistrhoPlugin3BandSplitter::d_initParameter(uint32_t index, Parameter& para
     switch (index)
     {
     case paramLow:
-        parameter.hints      = PARAMETER_IS_AUTOMABLE;
+        parameter.hints      = kParameterIsAutomable;
         parameter.name       = "Low";
         parameter.symbol     = "low";
         parameter.unit       = "dB";
@@ -55,7 +55,7 @@ void DistrhoPlugin3BandSplitter::d_initParameter(uint32_t index, Parameter& para
         break;
 
     case paramMid:
-        parameter.hints      = PARAMETER_IS_AUTOMABLE;
+        parameter.hints      = kParameterIsAutomable;
         parameter.name       = "Mid";
         parameter.symbol     = "mid";
         parameter.unit       = "dB";
@@ -65,7 +65,7 @@ void DistrhoPlugin3BandSplitter::d_initParameter(uint32_t index, Parameter& para
         break;
 
     case paramHigh:
-        parameter.hints      = PARAMETER_IS_AUTOMABLE;
+        parameter.hints      = kParameterIsAutomable;
         parameter.name       = "High";
         parameter.symbol     = "high";
         parameter.unit       = "dB";
@@ -75,7 +75,7 @@ void DistrhoPlugin3BandSplitter::d_initParameter(uint32_t index, Parameter& para
         break;
 
     case paramMaster:
-        parameter.hints      = PARAMETER_IS_AUTOMABLE;
+        parameter.hints      = kParameterIsAutomable;
         parameter.name       = "Master";
         parameter.symbol     = "master";
         parameter.unit       = "dB";
@@ -85,7 +85,7 @@ void DistrhoPlugin3BandSplitter::d_initParameter(uint32_t index, Parameter& para
         break;
 
     case paramLowMidFreq:
-        parameter.hints      = PARAMETER_IS_AUTOMABLE;
+        parameter.hints      = kParameterIsAutomable;
         parameter.name       = "Low-Mid Freq";
         parameter.symbol     = "low_mid";
         parameter.unit       = "Hz";
@@ -95,7 +95,7 @@ void DistrhoPlugin3BandSplitter::d_initParameter(uint32_t index, Parameter& para
         break;
 
     case paramMidHighFreq:
-        parameter.hints      = PARAMETER_IS_AUTOMABLE;
+        parameter.hints      = kParameterIsAutomable;
         parameter.name       = "Mid-High Freq";
         parameter.symbol     = "mid_high";
         parameter.unit       = "Hz";
