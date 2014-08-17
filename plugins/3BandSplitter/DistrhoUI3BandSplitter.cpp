@@ -42,6 +42,7 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     // slider Low
     fSliderLow = new ImageSlider(this, sliderImage);
     fSliderLow->setId(DistrhoPlugin3BandSplitter::paramLow);
+    fSliderLow->setInverted(true);
     fSliderLow->setStartPos(sliderPosStart);
     fSliderLow->setEndPos(sliderPosEnd);
     fSliderLow->setRange(-24.0f, 24.0f);
