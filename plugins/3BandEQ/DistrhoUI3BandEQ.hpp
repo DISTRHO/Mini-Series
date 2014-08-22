@@ -46,19 +46,6 @@ public:
 
 protected:
     // -------------------------------------------------------------------
-    // Information
-
-    uint d_getWidth() const noexcept override
-    {
-        return DistrhoArtwork3BandEQ::backgroundWidth;
-    }
-
-    uint d_getHeight() const noexcept override
-    {
-        return DistrhoArtwork3BandEQ::backgroundHeight;
-    }
-
-    // -------------------------------------------------------------------
     // DSP Callbacks
 
     void d_parameterChanged(uint32_t index, float value) override;

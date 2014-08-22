@@ -27,6 +27,9 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     : UI(),
       fAboutWindow(this)
 {
+    // set UI size
+    setSize(DistrhoArtwork3BandSplitter::backgroundWidth, DistrhoArtwork3BandSplitter::backgroundHeight);
+
     // background
     fImgBackground = Image(DistrhoArtwork3BandSplitter::backgroundData, DistrhoArtwork3BandSplitter::backgroundWidth, DistrhoArtwork3BandSplitter::backgroundHeight, GL_BGR);
 

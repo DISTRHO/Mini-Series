@@ -25,6 +25,9 @@ DistrhoUIPingPongPan::DistrhoUIPingPongPan()
     : UI(),
       fAboutWindow(this)
 {
+    // set UI size
+    setSize(DistrhoArtworkPingPongPan::backgroundWidth, DistrhoArtworkPingPongPan::backgroundHeight);
+
     // background
     fImgBackground = Image(DistrhoArtworkPingPongPan::backgroundData, DistrhoArtworkPingPongPan::backgroundWidth, DistrhoArtworkPingPongPan::backgroundHeight, GL_BGR);
 

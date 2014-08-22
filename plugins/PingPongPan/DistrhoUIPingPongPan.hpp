@@ -43,19 +43,6 @@ public:
 
 protected:
     // -------------------------------------------------------------------
-    // Information
-
-    uint d_getWidth() const noexcept override
-    {
-        return DistrhoArtworkPingPongPan::backgroundWidth;
-    }
-
-    uint d_getHeight() const noexcept override
-    {
-        return DistrhoArtworkPingPongPan::backgroundHeight;
-    }
-
-    // -------------------------------------------------------------------
     // DSP Callbacks
 
     void d_parameterChanged(uint32_t index, float value) override;

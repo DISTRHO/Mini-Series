@@ -27,6 +27,9 @@ DistrhoUI3BandEQ::DistrhoUI3BandEQ()
     : UI(),
       fAboutWindow(this)
 {
+    // set UI size
+    setSize(DistrhoArtwork3BandEQ::backgroundWidth, DistrhoArtwork3BandEQ::backgroundHeight);
+
     // background
     fImgBackground = Image(DistrhoArtwork3BandEQ::backgroundData, DistrhoArtwork3BandEQ::backgroundWidth, DistrhoArtwork3BandEQ::backgroundHeight, GL_BGR);
 
