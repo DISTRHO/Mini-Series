@@ -4,12 +4,16 @@
 # Created by falkTX
 #
 
+include Makefile.mk
+
 all: libs plugins gen
 
 # --------------------------------------------------------------
 
 libs:
+ifeq ($(HAVE_DGL),true)
 	$(MAKE) -C dpf/dgl
+endif
 
 plugins: libs
 	$(MAKE) all -C plugins/3BandEQ
@@ -28,7 +32,9 @@ dpf/utils/lv2_ttl_generator:
 # --------------------------------------------------------------
 
 clean:
+ifeq ($(HAVE_DGL),true)
 	$(MAKE) clean -C dpf/dgl
+endif
 	$(MAKE) clean -C dpf/utils/lv2-ttl-generator
 	$(MAKE) clean -C plugins/3BandEQ
 	$(MAKE) clean -C plugins/3BandSplitter
