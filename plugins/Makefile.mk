@@ -101,7 +101,9 @@ $(ladspa_dsp): $(OBJS_DSP) $(DISTRHO_PLUGIN_FILES)
 # --------------------------------------------------------------
 # DSSI
 
-dssi: $(dssi_dsp) $(dssi_ui)
+dssi:     $(dssi_dsp) $(dssi_ui)
+dssi_dsp: $(dssi_dsp)
+dssi_ui:  $(dssi_ui)
 
 $(dssi_dsp): $(OBJS_DSP) $(DISTRHO_PLUGIN_FILES)
 	mkdir -p $(shell dirname $@)
