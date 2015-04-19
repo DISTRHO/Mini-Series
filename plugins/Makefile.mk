@@ -75,7 +75,7 @@ all:
 	$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@
 
 clean:
-	rm -f *.o
+	rm -f *.d *.o
 	rm -rf $(TARGET_DIR)/$(NAME) $(TARGET_DIR)/$(NAME)-* $(TARGET_DIR)/$(NAME).lv2/
 
 # --------------------------------------------------------------
