@@ -69,10 +69,10 @@ all:
 # Common
 
 %.c.o: %.c
-	$(CC) $< $(BUILD_C_FLAGS) -c -o $@
+	$(CC) $< $(BUILD_C_FLAGS) -MD -MP -c -o $@
 
 %.cpp.o: %.cpp
-	$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@
+	$(CXX) $< $(BUILD_CXX_FLAGS) -MD -MP -c -o $@
 
 clean:
 	rm -f *.d *.o

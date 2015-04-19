@@ -22,7 +22,7 @@ endif
 # --------------------------------------------------------------
 # Set build and link flags
 
-BASE_FLAGS = -Wall -Wextra -pipe -MD -MP
+BASE_FLAGS = -Wall -Wextra -pipe
 BASE_OPTS  = -O2 -ffast-math -mtune=generic -msse -msse2 -fdata-sections -ffunction-sections
 
 ifneq ($(MACOS),true)
