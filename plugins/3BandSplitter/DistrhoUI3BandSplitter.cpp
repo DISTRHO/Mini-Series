@@ -21,24 +21,21 @@ using DGL::Point;
 
 START_NAMESPACE_DISTRHO
 
+namespace Artwork = DistrhoArtwork3BandSplitter;
+
 // -----------------------------------------------------------------------
 
 DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
-    : UI(),
+    : UI(Artwork::backgroundWidth, Artwork::backgroundHeight),
+      fImgBackground(Artwork::backgroundData, Artwork::backgroundWidth, Artwork::backgroundHeight, GL_BGR),
       fAboutWindow(this)
 {
-    // set UI size
-    setSize(DistrhoArtwork3BandSplitter::backgroundWidth, DistrhoArtwork3BandSplitter::backgroundHeight);
-
-    // background
-    fImgBackground = Image(DistrhoArtwork3BandSplitter::backgroundData, DistrhoArtwork3BandSplitter::backgroundWidth, DistrhoArtwork3BandSplitter::backgroundHeight, GL_BGR);
-
     // about
-    Image aboutImage(DistrhoArtwork3BandSplitter::aboutData, DistrhoArtwork3BandSplitter::aboutWidth, DistrhoArtwork3BandSplitter::aboutHeight, GL_BGR);
+    Image aboutImage(Artwork::aboutData, Artwork::aboutWidth, Artwork::aboutHeight, GL_BGR);
     fAboutWindow.setImage(aboutImage);
 
     // sliders
-    Image sliderImage(DistrhoArtwork3BandSplitter::sliderData, DistrhoArtwork3BandSplitter::sliderWidth, DistrhoArtwork3BandSplitter::sliderHeight);
+    Image sliderImage(Artwork::sliderData, Artwork::sliderWidth, Artwork::sliderHeight);
     Point<int> sliderPosStart(57, 43);
     Point<int> sliderPosEnd(57, 43 + 160);
 
@@ -76,7 +73,7 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     fSliderMaster->setEndPos(sliderPosEnd);
 
     // knobs
-    Image knobImage(DistrhoArtwork3BandSplitter::knobData, DistrhoArtwork3BandSplitter::knobWidth, DistrhoArtwork3BandSplitter::knobHeight);
+    Image knobImage(Artwork::knobData, Artwork::knobWidth, Artwork::knobHeight);
 
     // knob Low-Mid
     fKnobLowMid = new ImageKnob(this, knobImage, ImageKnob::Vertical);
@@ -97,8 +94,8 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     fKnobMidHigh->setCallback(this);
 
     // about button
-    Image aboutImageNormal(DistrhoArtwork3BandSplitter::aboutButtonNormalData, DistrhoArtwork3BandSplitter::aboutButtonNormalWidth, DistrhoArtwork3BandSplitter::aboutButtonNormalHeight);
-    Image aboutImageHover(DistrhoArtwork3BandSplitter::aboutButtonHoverData, DistrhoArtwork3BandSplitter::aboutButtonHoverWidth, DistrhoArtwork3BandSplitter::aboutButtonHoverHeight);
+    Image aboutImageNormal(Artwork::aboutButtonNormalData, Artwork::aboutButtonNormalWidth, Artwork::aboutButtonNormalHeight);
+    Image aboutImageHover(Artwork::aboutButtonHoverData, Artwork::aboutButtonHoverWidth, Artwork::aboutButtonHoverHeight);
     fButtonAbout = new ImageButton(this, aboutImageNormal, aboutImageHover, aboutImageHover);
     fButtonAbout->setAbsolutePos(264, 300);
     fButtonAbout->setCallback(this);

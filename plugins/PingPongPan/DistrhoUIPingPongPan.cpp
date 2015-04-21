@@ -19,23 +19,21 @@
 
 START_NAMESPACE_DISTRHO
 
+namespace Artwork = DistrhoArtworkPingPongPan;
+
 // -----------------------------------------------------------------------
 
 DistrhoUIPingPongPan::DistrhoUIPingPongPan()
-    : UI(),
+    : UI(Artwork::backgroundWidth, Artwork::backgroundHeight),
+      fImgBackground(Artwork::backgroundData, Artwork::backgroundWidth, Artwork::backgroundHeight, GL_BGR),
       fAboutWindow(this)
 {
-    // set UI size
-    setSize(DistrhoArtworkPingPongPan::backgroundWidth, DistrhoArtworkPingPongPan::backgroundHeight);
-
-    // background
-    fImgBackground = Image(DistrhoArtworkPingPongPan::backgroundData, DistrhoArtworkPingPongPan::backgroundWidth, DistrhoArtworkPingPongPan::backgroundHeight, GL_BGR);
-
-    Image imageAbout(DistrhoArtworkPingPongPan::aboutData, DistrhoArtworkPingPongPan::aboutWidth, DistrhoArtworkPingPongPan::aboutHeight, GL_BGR);
+    // about
+    Image imageAbout(Artwork::aboutData, Artwork::aboutWidth, Artwork::aboutHeight, GL_BGR);
     fAboutWindow.setImage(imageAbout);
 
     // knobs
-    Image knobImage(DistrhoArtworkPingPongPan::knobData, DistrhoArtworkPingPongPan::knobWidth, DistrhoArtworkPingPongPan::knobHeight);
+    Image knobImage(Artwork::knobData, Artwork::knobWidth, Artwork::knobHeight);
 
     // knob Low-Mid
     fKnobFreq = new ImageKnob(this, knobImage, ImageKnob::Vertical);
@@ -56,8 +54,8 @@ DistrhoUIPingPongPan::DistrhoUIPingPongPan()
     fKnobWidth->setCallback(this);
 
     // about button
-    Image aboutImageNormal(DistrhoArtworkPingPongPan::aboutButtonNormalData, DistrhoArtworkPingPongPan::aboutButtonNormalWidth, DistrhoArtworkPingPongPan::aboutButtonNormalHeight);
-    Image aboutImageHover(DistrhoArtworkPingPongPan::aboutButtonHoverData, DistrhoArtworkPingPongPan::aboutButtonHoverWidth, DistrhoArtworkPingPongPan::aboutButtonHoverHeight);
+    Image aboutImageNormal(Artwork::aboutButtonNormalData, Artwork::aboutButtonNormalWidth, Artwork::aboutButtonNormalHeight);
+    Image aboutImageHover(Artwork::aboutButtonHoverData, Artwork::aboutButtonHoverWidth, Artwork::aboutButtonHoverHeight);
     fButtonAbout = new ImageButton(this, aboutImageNormal, aboutImageHover, aboutImageHover);
     fButtonAbout->setAbsolutePos(183, 8);
     fButtonAbout->setCallback(this);
