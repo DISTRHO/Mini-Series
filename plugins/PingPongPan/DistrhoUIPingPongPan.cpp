@@ -19,21 +19,21 @@
 
 START_NAMESPACE_DISTRHO
 
-namespace Artwork = DistrhoArtworkPingPongPan;
+namespace Art = DistrhoArtworkPingPongPan;
 
 // -----------------------------------------------------------------------
 
 DistrhoUIPingPongPan::DistrhoUIPingPongPan()
-    : UI(Artwork::backgroundWidth, Artwork::backgroundHeight),
-      fImgBackground(Artwork::backgroundData, Artwork::backgroundWidth, Artwork::backgroundHeight, GL_BGR),
+    : UI(Art::backgroundWidth, Art::backgroundHeight),
+      fImgBackground(Art::backgroundData, Art::backgroundWidth, Art::backgroundHeight, GL_BGR),
       fAboutWindow(this)
 {
     // about
-    Image imageAbout(Artwork::aboutData, Artwork::aboutWidth, Artwork::aboutHeight, GL_BGR);
+    Image imageAbout(Art::aboutData, Art::aboutWidth, Art::aboutHeight, GL_BGR);
     fAboutWindow.setImage(imageAbout);
 
     // knobs
-    Image knobImage(Artwork::knobData, Artwork::knobWidth, Artwork::knobHeight);
+    Image knobImage(Art::knobData, Art::knobWidth, Art::knobHeight);
 
     // knob Low-Mid
     fKnobFreq = new ImageKnob(this, knobImage, ImageKnob::Vertical);
@@ -54,8 +54,8 @@ DistrhoUIPingPongPan::DistrhoUIPingPongPan()
     fKnobWidth->setCallback(this);
 
     // about button
-    Image aboutImageNormal(Artwork::aboutButtonNormalData, Artwork::aboutButtonNormalWidth, Artwork::aboutButtonNormalHeight);
-    Image aboutImageHover(Artwork::aboutButtonHoverData, Artwork::aboutButtonHoverWidth, Artwork::aboutButtonHoverHeight);
+    Image aboutImageNormal(Art::aboutButtonNormalData, Art::aboutButtonNormalWidth, Art::aboutButtonNormalHeight);
+    Image aboutImageHover(Art::aboutButtonHoverData, Art::aboutButtonHoverWidth, Art::aboutButtonHoverHeight);
     fButtonAbout = new ImageButton(this, aboutImageNormal, aboutImageHover, aboutImageHover);
     fButtonAbout->setAbsolutePos(183, 8);
     fButtonAbout->setCallback(this);
