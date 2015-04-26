@@ -61,13 +61,13 @@ DistrhoUIPingPongPan::DistrhoUIPingPongPan()
     fButtonAbout->setCallback(this);
 
     // set default values
-    d_programChanged(0);
+    programLoaded(0);
 }
 
 // -----------------------------------------------------------------------
 // DSP Callbacks
 
-void DistrhoUIPingPongPan::d_parameterChanged(uint32_t index, float value)
+void DistrhoUIPingPongPan::parameterChanged(uint32_t index, float value)
 {
     switch (index)
     {
@@ -80,7 +80,7 @@ void DistrhoUIPingPongPan::d_parameterChanged(uint32_t index, float value)
     }
 }
 
-void DistrhoUIPingPongPan::d_programChanged(uint32_t index)
+void DistrhoUIPingPongPan::programLoaded(uint32_t index)
 {
     if (index != 0)
         return;
@@ -103,17 +103,17 @@ void DistrhoUIPingPongPan::imageButtonClicked(ImageButton* button, int)
 
 void DistrhoUIPingPongPan::imageKnobDragStarted(ImageKnob* knob)
 {
-    d_editParameter(knob->getId(), true);
+    editParameter(knob->getId(), true);
 }
 
 void DistrhoUIPingPongPan::imageKnobDragFinished(ImageKnob* knob)
 {
-    d_editParameter(knob->getId(), false);
+    editParameter(knob->getId(), false);
 }
 
 void DistrhoUIPingPongPan::imageKnobValueChanged(ImageKnob* knob, float value)
 {
-    d_setParameterValue(knob->getId(), value);
+    setParameterValue(knob->getId(), value);
 }
 
 void DistrhoUIPingPongPan::onDisplay()

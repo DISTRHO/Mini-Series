@@ -101,13 +101,13 @@ DistrhoUI3BandSplitter::DistrhoUI3BandSplitter()
     fButtonAbout->setCallback(this);
 
     // set default values
-    d_programChanged(0);
+    programLoaded(0);
 }
 
 // -----------------------------------------------------------------------
 // DSP Callbacks
 
-void DistrhoUI3BandSplitter::d_parameterChanged(uint32_t index, float value)
+void DistrhoUI3BandSplitter::parameterChanged(uint32_t index, float value)
 {
     switch (index)
     {
@@ -132,7 +132,7 @@ void DistrhoUI3BandSplitter::d_parameterChanged(uint32_t index, float value)
     }
 }
 
-void DistrhoUI3BandSplitter::d_programChanged(uint32_t index)
+void DistrhoUI3BandSplitter::programLoaded(uint32_t index)
 {
     if (index != 0)
         return;
@@ -159,32 +159,32 @@ void DistrhoUI3BandSplitter::imageButtonClicked(ImageButton* button, int)
 
 void DistrhoUI3BandSplitter::imageKnobDragStarted(ImageKnob* knob)
 {
-    d_editParameter(knob->getId(), true);
+    editParameter(knob->getId(), true);
 }
 
 void DistrhoUI3BandSplitter::imageKnobDragFinished(ImageKnob* knob)
 {
-    d_editParameter(knob->getId(), false);
+    editParameter(knob->getId(), false);
 }
 
 void DistrhoUI3BandSplitter::imageKnobValueChanged(ImageKnob* knob, float value)
 {
-    d_setParameterValue(knob->getId(), value);
+    setParameterValue(knob->getId(), value);
 }
 
 void DistrhoUI3BandSplitter::imageSliderDragStarted(ImageSlider* slider)
 {
-    d_editParameter(slider->getId(), true);
+    editParameter(slider->getId(), true);
 }
 
 void DistrhoUI3BandSplitter::imageSliderDragFinished(ImageSlider* slider)
 {
-    d_editParameter(slider->getId(), false);
+    editParameter(slider->getId(), false);
 }
 
 void DistrhoUI3BandSplitter::imageSliderValueChanged(ImageSlider* slider, float value)
 {
-    d_setParameterValue(slider->getId(), value);
+    setParameterValue(slider->getId(), value);
 }
 
 void DistrhoUI3BandSplitter::onDisplay()
