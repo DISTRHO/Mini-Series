@@ -18,10 +18,7 @@
 #define DISTRHO_UI_PINGPONGPAN_HPP_INCLUDED
 
 #include "DistrhoUI.hpp"
-
-#include "ImageAboutWindow.hpp"
-#include "ImageButton.hpp"
-#include "ImageKnob.hpp"
+#include "ImageWidgets.hpp"
 
 #include "DistrhoArtworkPingPongPan.hpp"
 

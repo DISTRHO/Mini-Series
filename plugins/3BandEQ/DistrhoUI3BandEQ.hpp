@@ -18,11 +18,7 @@
 #define DISTRHO_UI_3BANDEQ_HPP_INCLUDED
 
 #include "DistrhoUI.hpp"
-
-#include "ImageAboutWindow.hpp"
-#include "ImageButton.hpp"
-#include "ImageKnob.hpp"
-#include "ImageSlider.hpp"
+#include "ImageWidgets.hpp"
 
 #include "DistrhoArtwork3BandEQ.hpp"
 
