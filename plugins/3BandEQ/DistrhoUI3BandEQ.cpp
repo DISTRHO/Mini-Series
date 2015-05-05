@@ -17,8 +17,6 @@
 #include "DistrhoPlugin3BandEQ.hpp"
 #include "DistrhoUI3BandEQ.hpp"
 
-using DGL::Point;
-
 START_NAMESPACE_DISTRHO
 
 namespace Art = DistrhoArtwork3BandEQ;
@@ -51,26 +49,35 @@ DistrhoUI3BandEQ::DistrhoUI3BandEQ()
     // slider Mid
     sliderPosStart.setX(120);
     sliderPosEnd.setX(120);
-    fSliderMid = new ImageSlider(*fSliderLow);
+    fSliderMid = new ImageSlider(this, sliderImage);
     fSliderMid->setId(DistrhoPlugin3BandEQ::paramMid);
+    fSliderMid->setInverted(true);
     fSliderMid->setStartPos(sliderPosStart);
     fSliderMid->setEndPos(sliderPosEnd);
+    fSliderMid->setRange(-24.0f, 24.0f);
+    fSliderMid->setCallback(this);
 
     // slider High
     sliderPosStart.setX(183);
     sliderPosEnd.setX(183);
-    fSliderHigh = new ImageSlider(*fSliderLow);
+    fSliderHigh = new ImageSlider(this, sliderImage);
     fSliderHigh->setId(DistrhoPlugin3BandEQ::paramHigh);
+    fSliderHigh->setInverted(true);
     fSliderHigh->setStartPos(sliderPosStart);
     fSliderHigh->setEndPos(sliderPosEnd);
+    fSliderHigh->setRange(-24.0f, 24.0f);
+    fSliderHigh->setCallback(this);
 
     // slider Master
     sliderPosStart.setX(287);
     sliderPosEnd.setX(287);
-    fSliderMaster = new ImageSlider(*fSliderLow);
+    fSliderMaster = new ImageSlider(this, sliderImage);
     fSliderMaster->setId(DistrhoPlugin3BandEQ::paramMaster);
+    fSliderMaster->setInverted(true);
     fSliderMaster->setStartPos(sliderPosStart);
     fSliderMaster->setEndPos(sliderPosEnd);
+    fSliderMaster->setRange(-24.0f, 24.0f);
+    fSliderMaster->setCallback(this);
 
     // knobs
     Image knobImage(Art::knobData, Art::knobWidth, Art::knobHeight);

@@ -22,11 +22,6 @@
 
 #include "DistrhoArtworkPingPongPan.hpp"
 
-using DGL::Image;
-using DGL::ImageAboutWindow;
-using DGL::ImageButton;
-using DGL::ImageKnob;
-
 START_NAMESPACE_DISTRHO
 
 // -----------------------------------------------------------------------

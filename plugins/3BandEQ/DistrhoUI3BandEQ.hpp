@@ -22,12 +22,6 @@
 
 #include "DistrhoArtwork3BandEQ.hpp"
 
-using DGL::Image;
-using DGL::ImageAboutWindow;
-using DGL::ImageButton;
-using DGL::ImageKnob;
-using DGL::ImageSlider;
-
 START_NAMESPACE_DISTRHO
 
 // -----------------------------------------------------------------------
