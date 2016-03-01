@@ -9,10 +9,10 @@
 .mod-pedal-boxy{{{cns}}} {
     background-position:center center;
     background-repeat:no-repeat;
-    background-size:230px 431px;
-    height:431px;
+    background-size:385px 212px;
+    width:385px;
+    height:212px;
     position:absolute;
-    width:230px;
     border-radius: 26px;
 }
 
@@ -164,64 +164,61 @@
 }
 .pingpongpan {
     background-image:url(/resources/background.png{{{ns}}}) !important;
-    background-size:615px 344px;
-    width:615px;
-    height:344px;
+    background-size:385px 212px;
+    width:385px;
+    height:212px;
     border-radius: 0;
 }
 .pingpongpan .mod-control-group {
-    width:500px;
-    height:220px;
+    width:237px;
+    height:85px;
+    top:71px;
+    left:73px;
+    margin:0px;
 }
 .pingpongpan .mod-control-group .mod-knob {
-    height:220px !important;
+    height:85px !important;
 }
 .pingpongpan .mod-control-group .mod-knob .mod-knob-image {
     background-image:url(/resources/knob.png{{{ns}}});
     background-position:left center;
     background-repeat:no-repeat;
-    background-size:auto 220px;
-    height:220px;
-    width:220px;
+    background-size:auto 85px;
+    height:85px;
+    width:85px;
     margin:0 auto;
     cursor:pointer;
     position:relative;
     overflow:hidden;
 }
 .pingpongpan .mod-control-group .pingpongpan-knob_freq {
-    top:55px;
-    left:58px;
+    left:0px;
     position:absolute;
 }
 .pingpongpan .mod-control-group .pingpongpan-knob_width {
-    top:55px;
-    left:302px;
+    left:152px;
     position:absolute;
 }
-.pingpongpan .mod-light {
-    top:32px;
-    left:320px;
-}
 .pingpongpan .mod-footswitch {
-    background-image:url(/resources/footswitch.png{{{ns}}});
-    background-position:top center;
+    background-image:url(/resources/slider.png{{{ns}}});
+    background-position:top left;
     background-repeat:no-repeat;
-    background-size:auto 132px;
-    top:15px;
-    right:55px;
+    background-size:120px 37px;
+    top:5px;
+    right:37px;
     cursor:pointer;
-    height:66px;
-    width: 66px;
+    height:37px;
+    width: 60px;
     position:absolute;
 }
 .pingpongpan .mod-footswitch.on {
-    background-position:top center;
+    background-position:top left;
 }
 .pingpongpan .mod-footswitch.off {
-    background-position:bottom center;
+    background-position:top right;
 }
 .pingpongpan .mod-pedal-input , .pingpongpan .mod-pedal-output {
-    top: 60px;
+    top: 30px;
 }
 .pingpongpan .mod-pedal-input .mod-input , .pingpongpan .mod-pedal-output .mod-output {
     margin-bottom: 40px !important
