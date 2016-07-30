@@ -6,7 +6,7 @@
 
 include Makefile.mk
 
-all: libs plugins gen
+all: libs plugins modguis gen
 
 # --------------------------------------------------------------
 
@@ -19,6 +19,10 @@ plugins: libs
 	$(MAKE) all -C plugins/3BandEQ
 	$(MAKE) all -C plugins/3BandSplitter
 	$(MAKE) all -C plugins/PingPongPan
+
+modguis: plugins
+	cp -r modguis/PingPongPan.modgui/modgui bin/PingPongPan.lv2/
+	cp modguis/PingPongPan.modgui/manifest.ttl bin/PingPongPan.lv2/modgui.ttl
 
 gen: plugins dpf/utils/lv2_ttl_generator
 	@$(CURDIR)/dpf/utils/generate-ttl.sh
