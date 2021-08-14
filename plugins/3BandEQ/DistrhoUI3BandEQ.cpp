@@ -24,7 +24,7 @@ namespace Art = DistrhoArtwork3BandEQ;
 // -----------------------------------------------------------------------
 
 DistrhoUI3BandEQ::DistrhoUI3BandEQ()
-    : UI(Art::backgroundWidth, Art::backgroundHeight),
+    : UI(Art::backgroundWidth, Art::backgroundHeight, true),
       fImgBackground(Art::backgroundData, Art::backgroundWidth, Art::backgroundHeight, kImageFormatBGR),
       fAboutWindow(this)
 {
@@ -109,9 +109,6 @@ DistrhoUI3BandEQ::DistrhoUI3BandEQ()
 
     // set default values
     programLoaded(0);
-
-    // automatically-scale
-    setGeometryConstraints(Art::backgroundWidth, Art::backgroundHeight, true, true);
 }
 
 // -----------------------------------------------------------------------
