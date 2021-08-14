@@ -109,6 +109,9 @@ DistrhoUI3BandEQ::DistrhoUI3BandEQ()
 
     // set default values
     programLoaded(0);
+
+    // automatically-scale
+    setGeometryConstraints(Art::backgroundWidth, Art::backgroundHeight, true, true);
 }
 
 // -----------------------------------------------------------------------
