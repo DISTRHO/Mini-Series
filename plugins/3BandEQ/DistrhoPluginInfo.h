@@ -33,12 +33,12 @@
 #define DISTRHO_PLUGIN_NUM_OUTPUTS   2
 #define DISTRHO_PLUGIN_WANT_PROGRAMS 1
 
+#define DISTRHO_UI_DEFAULT_WIDTH DistrhoArtwork3BandEQ::backgroundWidth
+#define DISTRHO_UI_DEFAULT_HEIGHT DistrhoArtwork3BandEQ::backgroundHeight
+
 #define DISTRHO_PLUGIN_CLAP_FEATURES   "audio-effect", "equalizer", "stereo"
 #define DISTRHO_PLUGIN_LV2_CATEGORY    "lv2:EQPlugin"
 #define DISTRHO_PLUGIN_VST3_CATEGORIES "Fx|EQ"
-
-#define DISTRHO_UI_DEFAULT_WIDTH DistrhoArtwork3BandEQ::backgroundWidth
-#define DISTRHO_UI_DEFAULT_HEIGHT DistrhoArtwork3BandEQ::backgroundHeight
 
 #define DPF_VST3_DONT_USE_BRAND_ID
 
